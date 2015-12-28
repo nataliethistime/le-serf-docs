@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>util.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul><li><a href="util.html">util</a><ul class='methods'><li data-type='method'><a href="util.html#.array">array</a></li><li data-type='method'><a href="util.html#.formatMs">formatMs</a></li><li data-type='method'><a href="util.html#.formatServerDate">formatServerDate</a></li><li data-type='method'><a href="util.html#.handlePromiseError">handlePromiseError</a></li><li data-type='method'><a href="util.html#.int">int</a></li><li data-type='method'><a href="util.html#.isMultiple">isMultiple</a></li><li data-type='method'><a href="util.html#.mean">mean</a></li><li data-type='method'><a href="util.html#.msFromNow">msFromNow</a></li><li data-type='method'><a href="util.html#.objectToArray">objectToArray</a></li><li data-type='method'><a href="util.html#.regexMatch">regexMatch</a></li><li data-type='method'><a href="util.html#.round">round</a></li></ul></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">util.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>'use strict'
+
+let _ = require('lodash')
+
+let moment = require('moment')
+require('moment-range')
+require('moment-duration-format')
+
+let constants = require('./constants')
+let log = require('./log')
+
+/**
+ * General utilities used around the place.
+ * @namespace util
+ */
+const util = {
+
+  /**
+   * Converts the given `thing` into an array. If it's is already an array, it's simply returned
+   * as-is. If it's `undefined` an empty array is returned. This is useful for making sure
+   * a variable is an array without doing any tricky checking.
+   *
+   * @param  {anything} thing - the variable you want to make into an array
+   * @return {array}
+   */
+  array (thing) {
+    if (!thing) {
+      return []
+    } else if (!_.isArray(thing)) {
+      return [thing]
+    } else {
+      return thing
+    }
+  },
+
+  /**
+   * Formats time (in milliseconds) to a human-readable form of `days:hours:minutes:seconds`.
+   *
+   * @param  {number} ms - time you want formatted in milliseconds
+   * @return {string}      human-readable time in the form `days:hours:minutes:seconds`
+   */
+  formatMs (ms) {
+    return moment.duration(ms, 'milliseconds').format()
+  },
+
+  /**
+   * Formats Lacuna's dates into a user-friendly form.
+   *
+   * @param  {string} date - the date from the server you want to format
+   * @return {string}        a nicely formatted date
+   */
+  formatServerDate (date) {
+    return moment(date, constants.serverDateFormat).format('dddd, Do MMMM HH:mm:ss ZZ')
+  },
+
+  /**
+   * Handles errors in promises. Use this to handle the `error` paramater in a Promise's
+   * `catch` callback. This is needed because often a task will do `reject('something messed up')`
+   * and other times there will be errors in the code. These need to be handled preperly
+   * and gracefully.
+   *
+   * @param  {object|string}  err - the thing that went wrong
+   */
+  handlePromiseError (err) {
+    if (typeof err === 'string') {
+      log.error(err)
+    } else {
+      throw new Error(err)
+    }
+  },
+
+  /**
+   * Converts the given number to an integer.
+   *
+   * @param  {number} num - the number you want to convert
+   * @return {integer}      an integer
+   */
+  int (num) {
+    return parseInt(num, 10)
+  },
+
+  /**
+   * Checks if `multiple` is a multiple of `num`.
+   *
+   * @param  {number}  num       - the original number
+   * @param  {number}  multiple  - the number you want to check is a multiple of `num`
+   * @return {Boolean}
+   */
+  isMultiple (num, multiple) {
+    return num % multiple === 0
+  },
+
+  /**
+   * Calculates the mean of the given list of numbers.
+   *
+   * @param  {array} arr - the array of numbers you want to calculate the mean of.
+   * @return {number}      the mean, rounded to two decimal places
+   */
+  mean (arr) {
+    return util.round(_.sum(arr) / arr.length, 2)
+  },
+
+  /**
+   * Returns the milliseconds from now that the given date is.
+   *
+   * @param  {Date} date - the date in the future some time
+   * @return {number}      milliseconds from now until that date
+   */
+  msFromNow (date) {
+    if (typeof date === 'string') {
+      date = moment(date, constants.serverDateFormat)
+    }
+
+    return moment.range(
+      moment(),
+      date
+    ).valueOf()
+  },
+
+  /**
+   * Convert an object to an array of objects.
+   *
+   * @param  {object} obj      - the object to convert
+   * @param  {string} keyName  - the key name for the old object's key in the new object
+   * @return {array}             the newly-generated array
+   */
+  objectToArray (obj, keyName) {
+    if (_.isArray(obj)) {
+      return obj
+    }
+
+    var arr = []
+
+    _.each(obj, (value, key) => {
+      value[keyName] = key
+      arr.push(value)
+    })
+
+    return arr
+  },
+
+  /**
+   * Checks if a given string matches a given regex.
+   *
+   * @param  {RegExp} regex - the regex to test
+   * @param  {string} str   - the string to test against the regex
+   * @return {boolean}        true if the regex matches the string otherwise false
+   */
+  regexMatch (regex, str) {
+    let match = str.match(regex)
+
+    if (match === null) {
+      return false
+    } else {
+      return true
+    }
+  },
+
+  /**
+   * Rounds a given number to the given number of digits.
+   *
+   * @param  {number} num      - the number you want to round
+   * @param  {number} decimals - the number of decimals you want to round the number to
+   * @return {number}            the rounded number
+   */
+  round (num, decimals) {
+    // NOTE: toFixed returns a string so we "* 1" to get a number.
+    return parseFloat(num, 10).toFixed(decimals) * 1
+  }
+}
+
+module.exports = util
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Mon Dec 28 2015 15:56:45 GMT+1000 (AEST) using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>
