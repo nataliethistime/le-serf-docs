@@ -23,7 +23,7 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul><li><a href="constants.html">constants</a></li><li><a href="util.html">util</a><ul class='methods'><li data-type='method'><a href="util.html#.array">array</a></li><li data-type='method'><a href="util.html#.formatMs">formatMs</a></li><li data-type='method'><a href="util.html#.formatServerDate">formatServerDate</a></li><li data-type='method'><a href="util.html#.handlePromiseError">handlePromiseError</a></li><li data-type='method'><a href="util.html#.int">int</a></li><li data-type='method'><a href="util.html#.isMultiple">isMultiple</a></li><li data-type='method'><a href="util.html#.mean">mean</a></li><li data-type='method'><a href="util.html#.msFromNow">msFromNow</a></li><li data-type='method'><a href="util.html#.objectToArray">objectToArray</a></li><li data-type='method'><a href="util.html#.regexMatch">regexMatch</a></li><li data-type='method'><a href="util.html#.round">round</a></li></ul></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul><li><a href="constants.html">constants</a></li><li><a href="types.html">types</a><ul class='methods'><li data-type='method'><a href="types.html#.translateShipType">translateShipType</a></li></ul></li><li><a href="util.html">util</a><ul class='methods'><li data-type='method'><a href="util.html#.array">array</a></li><li data-type='method'><a href="util.html#.formatMs">formatMs</a></li><li data-type='method'><a href="util.html#.formatServerDate">formatServerDate</a></li><li data-type='method'><a href="util.html#.handlePlurality">handlePlurality</a></li><li data-type='method'><a href="util.html#.handlePromiseError">handlePromiseError</a></li><li data-type='method'><a href="util.html#.int">int</a></li><li data-type='method'><a href="util.html#.isMultiple">isMultiple</a></li><li data-type='method'><a href="util.html#.mean">mean</a></li><li data-type='method'><a href="util.html#.msFromNow">msFromNow</a></li><li data-type='method'><a href="util.html#.objectToArray">objectToArray</a></li><li data-type='method'><a href="util.html#.regexMatch">regexMatch</a></li><li data-type='method'><a href="util.html#.round">round</a></li></ul></li></ul>
 </nav>
 
 <div id="main">
@@ -86,7 +86,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="util.js.html">util.js</a>, <a href="util.js.html#line12">line 12</a>
+        <a href="util.js.html">util.js</a>, <a href="util.js.html#line14">line 14</a>
     </li></ul></dd>
     
 
@@ -224,7 +224,7 @@ a variable is an array without doing any tricky checking.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="util.js.html">util.js</a>, <a href="util.js.html#line27">line 27</a>
+        <a href="util.js.html">util.js</a>, <a href="util.js.html#line29">line 29</a>
     </li></ul></dd>
     
 
@@ -373,7 +373,7 @@ a variable is an array without doing any tricky checking.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="util.js.html">util.js</a>, <a href="util.js.html#line43">line 43</a>
+        <a href="util.js.html">util.js</a>, <a href="util.js.html#line45">line 45</a>
     </li></ul></dd>
     
 
@@ -526,7 +526,7 @@ a variable is an array without doing any tricky checking.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="util.js.html">util.js</a>, <a href="util.js.html#line53">line 53</a>
+        <a href="util.js.html">util.js</a>, <a href="util.js.html#line55">line 55</a>
     </li></ul></dd>
     
 
@@ -571,6 +571,191 @@ a variable is an array without doing any tricky checking.</p>
 </dl>
 
     
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".handlePlurality"><span class="type-signature">(static) </span>handlePlurality<span class="signature">(number, word)</span><span class="type-signature"> &rarr; {string}</span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Handles whether you should use a singular noun or a plural.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>number</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>the number of things you have</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>word</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>the name of the thing(s) you have</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="util.js.html">util.js</a>, <a href="util.js.html#line160">line 160</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>the singular of plural form of <code>word</code></p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Examples</h5>
+    
+    <pre class="prettyprint"><code>util.handlePlurality(10, 'ship')
+// => 'ships'</code></pre>
+
+    <pre class="prettyprint"><code>util.handlePlurality(1, 'spy')
+// => 'spy'</code></pre>
 
 
 
@@ -685,7 +870,7 @@ and gracefully.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="util.js.html">util.js</a>, <a href="util.js.html#line65">line 65</a>
+        <a href="util.js.html">util.js</a>, <a href="util.js.html#line67">line 67</a>
     </li></ul></dd>
     
 
@@ -816,7 +1001,7 @@ and gracefully.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="util.js.html">util.js</a>, <a href="util.js.html#line79">line 79</a>
+        <a href="util.js.html">util.js</a>, <a href="util.js.html#line81">line 81</a>
     </li></ul></dd>
     
 
@@ -992,7 +1177,7 @@ and gracefully.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="util.js.html">util.js</a>, <a href="util.js.html#line90">line 90</a>
+        <a href="util.js.html">util.js</a>, <a href="util.js.html#line92">line 92</a>
     </li></ul></dd>
     
 
@@ -1141,7 +1326,7 @@ and gracefully.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="util.js.html">util.js</a>, <a href="util.js.html#line100">line 100</a>
+        <a href="util.js.html">util.js</a>, <a href="util.js.html#line102">line 102</a>
     </li></ul></dd>
     
 
@@ -1294,7 +1479,7 @@ and gracefully.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="util.js.html">util.js</a>, <a href="util.js.html#line110">line 110</a>
+        <a href="util.js.html">util.js</a>, <a href="util.js.html#line112">line 112</a>
     </li></ul></dd>
     
 
@@ -1470,7 +1655,7 @@ and gracefully.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="util.js.html">util.js</a>, <a href="util.js.html#line128">line 128</a>
+        <a href="util.js.html">util.js</a>, <a href="util.js.html#line130">line 130</a>
     </li></ul></dd>
     
 
@@ -1646,7 +1831,7 @@ and gracefully.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="util.js.html">util.js</a>, <a href="util.js.html#line150">line 150</a>
+        <a href="util.js.html">util.js</a>, <a href="util.js.html#line172">line 172</a>
     </li></ul></dd>
     
 
@@ -1822,7 +2007,7 @@ and gracefully.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="util.js.html">util.js</a>, <a href="util.js.html#line167">line 167</a>
+        <a href="util.js.html">util.js</a>, <a href="util.js.html#line189">line 189</a>
     </li></ul></dd>
     
 
@@ -1888,7 +2073,7 @@ and gracefully.</p>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Fri Jan 01 2016 18:00:02 GMT+1000 (AEST) using the Minami theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Mon Jan 04 2016 13:35:41 GMT+1000 (AEST) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>

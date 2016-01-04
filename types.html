@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>constants - Documentation</title>
+    <title>types - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -28,7 +28,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">constants</h1>
+    <h1 class="page-title">types</h1>
     
 
     
@@ -41,7 +41,7 @@
 <header>
     
         <h2>
-        constants
+        types
         </h2>
         
     
@@ -51,7 +51,7 @@
     <div class="container-overview">
     
         
-            <div class="description"><p>Some constants that are used around the application.</p></div>
+            <div class="description"><p>Translate human-written types into server types</p></div>
         
 
         
@@ -86,7 +86,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="constants.js.html">constants.js</a>, <a href="constants.js.html#line3">line 3</a>
+        <a href="types.js.html">types.js</a>, <a href="types.js.html#line9">line 9</a>
     </li></ul></dd>
     
 
@@ -113,31 +113,81 @@
     
 
     
-        <h3 class="subsection-title">Members</h3>
+
+    
+        <h3 class="subsection-title">Methods</h3>
 
         
             
-<h4 class="name" id=".serverDateFormat"><span class="type-signature">(static) </span>serverDateFormat<span class="type-signature"> :string</span></h4>
 
+    
+
+    <h4 class="name" id=".translateShipType"><span class="type-signature">(static) </span>translateShipType<span class="signature">(type)</span><span class="type-signature"> &rarr; {string}</span></h4>
+
+    
 
 
 
 <div class="description">
-    <p>This is the format of the dates returned by the Lacuna server. Use it with <code>moment()</code>
-to get <code>moment</code>s representing server dates.</p>
+    <p>Translates the given ship type into a type the server can understand.</p>
 </div>
 
 
 
-    <h5>Type:</h5>
-    <ul>
-        <li>
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
             
+                <td class="name"><code>type</code></td>
+            
+
+            <td class="type">
+            
+                
 <span class="param-type">string</span>
 
 
-        </li>
-    </ul>
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>the ship type you want to translate</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
 
 
 
@@ -172,7 +222,7 @@ to get <code>moment</code>s representing server dates.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="constants.js.html">constants.js</a>, <a href="constants.js.html#line10">line 10</a>
+        <a href="types.js.html">types.js</a>, <a href="types.js.html#line22">line 22</a>
     </li></ul></dd>
     
 
@@ -188,81 +238,39 @@ to get <code>moment</code>s representing server dates.</p>
 
 
 
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
         
-            
-<h4 class="name" id=".shipTypes"><span class="type-signature">(static) </span>shipTypes<span class="type-signature"> :Object</span></h4>
-
-
-
-
-<div class="description">
-    <p>A map of user-friendly ship names to server ship types.</p>
+<div class="param-desc">
+    <p>the new type</p>
 </div>
 
 
 
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type">Object</span>
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
 
 
-        </li>
-    </ul>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="constants.js.html">constants.js</a>, <a href="constants.js.html#line20">line 20</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
+    </dd>
 </dl>
 
-
-
+    
 
 
 
         
-    
-
     
 
     
