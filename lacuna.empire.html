@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>constants - Documentation</title>
+    <title>empire - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -28,7 +28,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">constants</h1>
+    <h1 class="page-title">empire</h1>
     
 
     
@@ -41,7 +41,9 @@
 <header>
     
         <h2>
-        constants
+            <span class="ancestors"><a href="lacuna.html">lacuna</a>.</span>
+        
+        empire
         </h2>
         
     
@@ -51,7 +53,7 @@
     <div class="container-overview">
     
         
-            <div class="description"><p>Some constants that are used around the application.</p></div>
+            <div class="description"><p>TODO</p></div>
         
 
         
@@ -86,7 +88,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="constants.js.html">constants.js</a>, <a href="constants.js.html#line3">line 3</a>
+        <a href="lacuna_modules_empire.js.html">lacuna/modules/empire.js</a>, <a href="lacuna_modules_empire.js.html#line11">line 11</a>
     </li></ul></dd>
     
 
@@ -113,31 +115,116 @@
     
 
     
-        <h3 class="subsection-title">Members</h3>
+
+    
+        <h3 class="subsection-title">Methods</h3>
 
         
             
-<h4 class="name" id=".serverDateFormat"><span class="type-signature">(static) </span>serverDateFormat<span class="type-signature"> :string</span></h4>
 
+    
+
+    <h4 class="name" id=".findPlanets"><span class="type-signature">(static) </span>findPlanets<span class="signature">(planet, skip)</span><span class="type-signature"> &rarr; {array}</span></h4>
+
+    
 
 
 
 <div class="description">
-    <p>This is the format of the dates returned by the Lacuna server. Use it with <code>moment()</code>
-to get <code>moment</code>s representing server dates.</p>
+    <p>This function is for handling the <code>--planet</code> argument.</p>
+<p>It can be one of three things:</p>
+<ul>
+<li>the string 'all'</li>
+<li>a planet name</li>
+<li>an array of planet names</li>
+</ul>
 </div>
 
 
 
-    <h5>Type:</h5>
-    <ul>
-        <li>
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
             
+                <td class="name"><code>planet</code></td>
+            
+
+            <td class="type">
+            
+                
 <span class="param-type">string</span>
+|
+
+<span class="param-type">array</span>
 
 
-        </li>
-    </ul>
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>the planet names you want to find</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>skip</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+|
+
+<span class="param-type">array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>the planet names you want to skip</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
 
 
 
@@ -172,7 +259,7 @@ to get <code>moment</code>s representing server dates.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="constants.js.html">constants.js</a>, <a href="constants.js.html#line10">line 10</a>
+        <a href="lacuna_modules_empire.js.html">lacuna/modules/empire.js</a>, <a href="lacuna_modules_empire.js.html#line89">line 89</a>
     </li></ul></dd>
     
 
@@ -188,81 +275,55 @@ to get <code>moment</code>s representing server dates.</p>
 
 
 
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
         
-            
-<h4 class="name" id=".shipTypes"><span class="type-signature">(static) </span>shipTypes<span class="type-signature"> :Object</span></h4>
-
-
-
-
-<div class="description">
-    <p>A map of user-friendly ship names to server ship types.</p>
+<div class="param-desc">
+    <p>array of the planets that were found</p>
 </div>
 
 
 
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type">Object</span>
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">array</span>
 
 
-        </li>
-    </ul>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="constants.js.html">constants.js</a>, <a href="constants.js.html#line20">line 20</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
+    </dd>
 </dl>
 
+    
 
 
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>lacuna.empire.findPlanets(['Earth', 'Mars'])
+// Returns:
+[
+  {
+    name: 'Earth',
+    id: 3
+  },
+  {
+    name: 'Mars',
+    id: 4
+  }
+]</code></pre>
 
 
 
         
-    
-
     
 
     

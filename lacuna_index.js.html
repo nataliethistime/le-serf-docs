@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>lacuna/index.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul><li><a href="constants.html">constants</a></li><li><a href="lacuna.html">lacuna</a></li><li><a href="lacuna.empire.html">empire</a><ul class='methods'><li data-type='method'><a href="lacuna.empire.html#.findPlanets">findPlanets</a></li></ul></li><li><a href="types.html">types</a><ul class='methods'><li data-type='method'><a href="types.html#.translateShipType">translateShipType</a></li></ul></li><li><a href="util.html">util</a><ul class='methods'><li data-type='method'><a href="util.html#.array">array</a></li><li data-type='method'><a href="util.html#.formatMs">formatMs</a></li><li data-type='method'><a href="util.html#.formatServerDate">formatServerDate</a></li><li data-type='method'><a href="util.html#.handlePlurality">handlePlurality</a></li><li data-type='method'><a href="util.html#.handlePromiseError">handlePromiseError</a></li><li data-type='method'><a href="util.html#.int">int</a></li><li data-type='method'><a href="util.html#.isCLI">isCLI</a></li><li data-type='method'><a href="util.html#.isMultiple">isMultiple</a></li><li data-type='method'><a href="util.html#.isWeb">isWeb</a></li><li data-type='method'><a href="util.html#.mean">mean</a></li><li data-type='method'><a href="util.html#.msFromNow">msFromNow</a></li><li data-type='method'><a href="util.html#.objectToArray">objectToArray</a></li><li data-type='method'><a href="util.html#.regexMatch">regexMatch</a></li><li data-type='method'><a href="util.html#.round">round</a></li></ul></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">lacuna/index.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>'use strict'
+
+let _ = require('lodash')
+
+let cache = require('./cache')
+let log = require('../log')
+
+let Alliance = require('./modules/alliance')
+let Body = require('./modules/body')
+let Captcha = require('./modules/captcha')
+let Empire = require('./modules/empire')
+let Inbox = require('./modules/inbox')
+let Map = require('./modules/map')
+let Stats = require('./modules/stats')
+
+let Building = require('./building')
+
+let Archaeology = require('./buildings/archaeology')
+let Intelligence = require('./buildings/intelligence')
+let PlanetaryCommand = require('./buildings/planetaryCommand')
+let Shipyard = require('./buildings/shipyard')
+let SpacePort = require('./buildings/spaceport')
+let Trade = require('./buildings/trade')
+
+let Parliament = require('./ssbuildings/parliament')
+let PoliceStation = require('./ssbuildings/policeStation')
+let StationCommand = require('./ssbuildings/stationCommand')
+
+const defaults = {
+  apiKey: 'anonymous',
+  empire: '',
+  password: '',
+  server: 'us1'
+}
+
+/**
+ * This object is for interacting with the Lacuna game server.
+ *
+ * @namespace lacuna
+ */
+let lacuna = {
+  init (config, session) {
+    if (config) {
+      // Handle defaults and stuff
+      let obj = _.merge({}, defaults, config)
+      cache.put('config', obj)
+    } else {
+      log.error('No config passed to lacuna.init()')
+    }
+
+    if (session) {
+      cache.put('session', session)
+    }
+
+    return lacuna
+  },
+
+  // Base Modules
+  alliance: new Alliance(),
+  body: new Body(),
+  captcha: new Captcha(),
+  empire: new Empire(),
+  inbox: new Inbox(),
+  map: new Map(),
+  stats: new Stats(),
+
+  buildings: {
+    archaeology: new Archaeology(),
+    generic: (url) => new Building(url.replace(/\//g, '')),
+    intelligence: new Intelligence(),
+    planetaryCommand: new PlanetaryCommand(),
+    shipyard: new Shipyard(),
+    spaceport: new SpacePort(),
+    trade: new Trade()
+  },
+
+  modules: {
+    parliament: new Parliament(),
+    policeStation: new PoliceStation(),
+    stationCommand: new StationCommand()
+  },
+
+  authenticate () {
+    let config = cache.get('config')
+    let session = cache.get('session')
+
+    if (session) {
+      return new Promise((resolve, reject) => resolve(session))
+    } else {
+      log.info(`Logging into empire ${config.empire}`)
+
+      if (!config.empire || !config.password) {
+        return new Promise((resolve, reject) => {
+          reject('Empire name and password are required')
+        })
+      }
+
+      return lacuna.empire.login([
+        config.empire,
+        config.password,
+        config.apiKey
+      ]).then((result) => {
+        let session = result.session_id
+        cache.put('session', session)
+        return session
+      })
+    }
+  },
+
+  newSession () {
+    cache.put('session', '')
+    return lacuna.authenticate()
+  },
+
+  getConfig () {
+    return cache.get('config')
+  },
+
+  getSession () {
+    return cache.get('session')
+  }
+}
+
+module.exports = lacuna
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Tue Jan 12 2016 21:57:47 GMT+0000 (UTC) using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>
