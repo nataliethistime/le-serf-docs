@@ -23,7 +23,7 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul><li><a href="constants.html">constants</a></li><li><a href="lacuna.html">lacuna</a></li><li><a href="lacuna.empire.html">empire</a><ul class='methods'><li data-type='method'><a href="lacuna.empire.html#.findPlanets">findPlanets</a></li></ul></li><li><a href="types.html">types</a><ul class='methods'><li data-type='method'><a href="types.html#.translateShipType">translateShipType</a></li></ul></li><li><a href="util.html">util</a><ul class='methods'><li data-type='method'><a href="util.html#.array">array</a></li><li data-type='method'><a href="util.html#.formatMs">formatMs</a></li><li data-type='method'><a href="util.html#.formatServerDate">formatServerDate</a></li><li data-type='method'><a href="util.html#.handlePlurality">handlePlurality</a></li><li data-type='method'><a href="util.html#.handlePromiseError">handlePromiseError</a></li><li data-type='method'><a href="util.html#.int">int</a></li><li data-type='method'><a href="util.html#.isCLI">isCLI</a></li><li data-type='method'><a href="util.html#.isMultiple">isMultiple</a></li><li data-type='method'><a href="util.html#.isWeb">isWeb</a></li><li data-type='method'><a href="util.html#.mean">mean</a></li><li data-type='method'><a href="util.html#.msFromNow">msFromNow</a></li><li data-type='method'><a href="util.html#.objectToArray">objectToArray</a></li><li data-type='method'><a href="util.html#.regexMatch">regexMatch</a></li><li data-type='method'><a href="util.html#.round">round</a></li></ul></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul><li><a href="constants.html">constants</a></li><li><a href="lacuna.html">lacuna</a></li><li><a href="lacuna.empire.html">empire</a><ul class='methods'><li data-type='method'><a href="lacuna.empire.html#.eachPlanet">eachPlanet</a></li><li data-type='method'><a href="lacuna.empire.html#.findPlanets">findPlanets</a></li></ul></li><li><a href="types.html">types</a><ul class='methods'><li data-type='method'><a href="types.html#.translateShipType">translateShipType</a></li></ul></li><li><a href="util.html">util</a><ul class='methods'><li data-type='method'><a href="util.html#.array">array</a></li><li data-type='method'><a href="util.html#.commify">commify</a></li><li data-type='method'><a href="util.html#.formatMs">formatMs</a></li><li data-type='method'><a href="util.html#.formatServerDate">formatServerDate</a></li><li data-type='method'><a href="util.html#.handlePlurality">handlePlurality</a></li><li data-type='method'><a href="util.html#.handlePromiseError">handlePromiseError</a></li><li data-type='method'><a href="util.html#.int">int</a></li><li data-type='method'><a href="util.html#.isCLI">isCLI</a></li><li data-type='method'><a href="util.html#.isMultiple">isMultiple</a></li><li data-type='method'><a href="util.html#.isWeb">isWeb</a></li><li data-type='method'><a href="util.html#.mean">mean</a></li><li data-type='method'><a href="util.html#.msFromNow">msFromNow</a></li><li data-type='method'><a href="util.html#.objectToArray">objectToArray</a></li><li data-type='method'><a href="util.html#.regexMatch">regexMatch</a></li><li data-type='method'><a href="util.html#.round">round</a></li></ul></li></ul>
 </nav>
 
 <div id="main">
@@ -118,6 +118,202 @@
 
     
         <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id=".eachPlanet"><span class="type-signature">(static) </span>eachPlanet<span class="signature">(planets, callback, opts)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Loop through each given planet while handling getting buildings, unhappiness and errors.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>planets</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>the list of planets you want to loop through</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>a thenable to run on each planet</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>opts</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>options (set <code>force</code> to true to ignore unhappiness checks here)</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lacuna_modules_empire.js.html">lacuna/modules/empire.js</a>, <a href="lacuna_modules_empire.js.html#line172">line 172</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Examples</h5>
+    
+    <pre class="prettyprint"><code>// Go thru each colony
+lacuna.empire.colonies.then((colonies) => {
+  return lacuna.empire.eachPlanet(colonies, (colony, buildings) => {
+    // Do stuff with colony or buildings.
+    // Erorrs thrown in here are logged to the console and don't kill the current task.
+  })
+})</code></pre>
+
+    <pre class="prettyprint"><code>// Go thru each colony ignoring unhappiness checks (NOT RECOMMENDED)
+lacuna.empire.colonies.then((colonies) => {
+  return lacuna.empire.eachPlanet(colonies, (colony, buildings) => {
+    // Do stuff with colony or buildings.
+    // Erorrs thrown in here are logged to the console and don't kill the current task.
+  }, {force: true})
+})</code></pre>
+
+
 
         
             
@@ -341,7 +537,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Sat Jan 23 2016 17:16:54 GMT+1000 (AEST) using the Minami theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Tue Mar 08 2016 15:46:59 GMT+1000 (AEST) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>

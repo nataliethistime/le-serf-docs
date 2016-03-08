@@ -23,7 +23,7 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul><li><a href="constants.html">constants</a></li><li><a href="lacuna.html">lacuna</a></li><li><a href="lacuna.empire.html">empire</a><ul class='methods'><li data-type='method'><a href="lacuna.empire.html#.findPlanets">findPlanets</a></li></ul></li><li><a href="types.html">types</a><ul class='methods'><li data-type='method'><a href="types.html#.translateShipType">translateShipType</a></li></ul></li><li><a href="util.html">util</a><ul class='methods'><li data-type='method'><a href="util.html#.array">array</a></li><li data-type='method'><a href="util.html#.formatMs">formatMs</a></li><li data-type='method'><a href="util.html#.formatServerDate">formatServerDate</a></li><li data-type='method'><a href="util.html#.handlePlurality">handlePlurality</a></li><li data-type='method'><a href="util.html#.handlePromiseError">handlePromiseError</a></li><li data-type='method'><a href="util.html#.int">int</a></li><li data-type='method'><a href="util.html#.isCLI">isCLI</a></li><li data-type='method'><a href="util.html#.isMultiple">isMultiple</a></li><li data-type='method'><a href="util.html#.isWeb">isWeb</a></li><li data-type='method'><a href="util.html#.mean">mean</a></li><li data-type='method'><a href="util.html#.msFromNow">msFromNow</a></li><li data-type='method'><a href="util.html#.objectToArray">objectToArray</a></li><li data-type='method'><a href="util.html#.regexMatch">regexMatch</a></li><li data-type='method'><a href="util.html#.round">round</a></li></ul></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul><li><a href="constants.html">constants</a></li><li><a href="lacuna.html">lacuna</a></li><li><a href="lacuna.empire.html">empire</a><ul class='methods'><li data-type='method'><a href="lacuna.empire.html#.eachPlanet">eachPlanet</a></li><li data-type='method'><a href="lacuna.empire.html#.findPlanets">findPlanets</a></li></ul></li><li><a href="types.html">types</a><ul class='methods'><li data-type='method'><a href="types.html#.translateShipType">translateShipType</a></li></ul></li><li><a href="util.html">util</a><ul class='methods'><li data-type='method'><a href="util.html#.array">array</a></li><li data-type='method'><a href="util.html#.commify">commify</a></li><li data-type='method'><a href="util.html#.formatMs">formatMs</a></li><li data-type='method'><a href="util.html#.formatServerDate">formatServerDate</a></li><li data-type='method'><a href="util.html#.handlePlurality">handlePlurality</a></li><li data-type='method'><a href="util.html#.handlePromiseError">handlePromiseError</a></li><li data-type='method'><a href="util.html#.int">int</a></li><li data-type='method'><a href="util.html#.isCLI">isCLI</a></li><li data-type='method'><a href="util.html#.isMultiple">isMultiple</a></li><li data-type='method'><a href="util.html#.isWeb">isWeb</a></li><li data-type='method'><a href="util.html#.mean">mean</a></li><li data-type='method'><a href="util.html#.msFromNow">msFromNow</a></li><li data-type='method'><a href="util.html#.objectToArray">objectToArray</a></li><li data-type='method'><a href="util.html#.regexMatch">regexMatch</a></li><li data-type='method'><a href="util.html#.round">round</a></li></ul></li></ul>
 </nav>
 
 <div id="main">
@@ -50,11 +50,32 @@
         <article><h1>Le Serf</h1><blockquote>
 <p>Your trusty assistant in your Lacuna Expanse misadventures!</p>
 </blockquote>
-<p><a href="https://travis-ci.org/le-serf/le-serf"><img src="https://travis-ci.org/le-serf/le-serf.svg" alt="Build Status"></a>
+<p><a href="https://travis-ci.org/1vasari/le-serf"><img src="https://travis-ci.org/1vasari/le-serf.svg" alt="Build Status"></a>
 <a href="http://standardjs.com/"><img src="https://img.shields.io/badge/code%20style-standard-brightgreen.svg" alt="js-standard-style"></a>
-<a href="https://david-dm.org/le-serf/le-serf"><img src="https://david-dm.org/le-serf/le-serf.svg" alt="Dependency Status"></a>
-<a href="https://david-dm.org/le-serf/le-serf#info=devDependencies"><img src="https://david-dm.org/le-serf/le-serf/dev-status.svg" alt="devDependency Status"></a></p>
-<h1>Changes</h1><h2>1.4.0</h2><p><strong>Released:</strong> January 22nd 2016</p>
+<a href="https://david-dm.org/1vasari/le-serf"><img src="https://david-dm.org/1vasari/le-serf.svg" alt="Dependency Status"></a>
+<a href="https://david-dm.org/1vasari/le-serf#info=devDependencies"><img src="https://david-dm.org/1vasari/le-serf/dev-status.svg" alt="devDependency Status"></a></p>
+<h1>Ch-Ch-Ch Changes!</h1><h2>2.0.0</h2><p><strong>Released</strong>: March 8 2016</p>
+<p><strong>Tasks</strong></p>
+<ul>
+<li>Implemented new <code>docks</code> task.</li>
+<li>Implemented new <code>spy-status</code> task.</li>
+<li>Implemented new <code>spy-skills</code> task.</li>
+<li><code>upgrade-buildings</code> handles low-level buildings better.</li>
+<li><code>push-buildings-up</code> now has an option to wait for buildings to finish upgrading.</li>
+<li>Fixed the output of <code>build-ships</code></li>
+</ul>
+<p><strong>Technical</strong></p>
+<ul>
+<li>Moved <code>le-serf/le-serf</code> to <code>1vasari/le-serf</code>.</li>
+<li>Changed my email and website.</li>
+<li>When the version number changes the website reloads itself (without cache).</li>
+<li>Added some unit tests.</li>
+</ul>
+<p><strong>Web</strong></p>
+<ul>
+<li>Implemented a fancy loading screen.</li>
+</ul>
+<h2>1.4.0</h2><p><strong>Released:</strong> January 22nd 2016</p>
 <p><strong>Tasks</strong></p>
 <ul>
 <li>Implemented new <code>docked-ships</code> task.</li>
@@ -157,7 +178,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Sat Jan 23 2016 17:16:54 GMT+1000 (AEST) using the Minami theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Tue Mar 08 2016 15:46:59 GMT+1000 (AEST) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>

@@ -23,7 +23,7 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul><li><a href="constants.html">constants</a></li><li><a href="lacuna.html">lacuna</a></li><li><a href="lacuna.empire.html">empire</a><ul class='methods'><li data-type='method'><a href="lacuna.empire.html#.findPlanets">findPlanets</a></li></ul></li><li><a href="types.html">types</a><ul class='methods'><li data-type='method'><a href="types.html#.translateShipType">translateShipType</a></li></ul></li><li><a href="util.html">util</a><ul class='methods'><li data-type='method'><a href="util.html#.array">array</a></li><li data-type='method'><a href="util.html#.formatMs">formatMs</a></li><li data-type='method'><a href="util.html#.formatServerDate">formatServerDate</a></li><li data-type='method'><a href="util.html#.handlePlurality">handlePlurality</a></li><li data-type='method'><a href="util.html#.handlePromiseError">handlePromiseError</a></li><li data-type='method'><a href="util.html#.int">int</a></li><li data-type='method'><a href="util.html#.isCLI">isCLI</a></li><li data-type='method'><a href="util.html#.isMultiple">isMultiple</a></li><li data-type='method'><a href="util.html#.isWeb">isWeb</a></li><li data-type='method'><a href="util.html#.mean">mean</a></li><li data-type='method'><a href="util.html#.msFromNow">msFromNow</a></li><li data-type='method'><a href="util.html#.objectToArray">objectToArray</a></li><li data-type='method'><a href="util.html#.regexMatch">regexMatch</a></li><li data-type='method'><a href="util.html#.round">round</a></li></ul></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul><li><a href="constants.html">constants</a></li><li><a href="lacuna.html">lacuna</a></li><li><a href="lacuna.empire.html">empire</a><ul class='methods'><li data-type='method'><a href="lacuna.empire.html#.eachPlanet">eachPlanet</a></li><li data-type='method'><a href="lacuna.empire.html#.findPlanets">findPlanets</a></li></ul></li><li><a href="types.html">types</a><ul class='methods'><li data-type='method'><a href="types.html#.translateShipType">translateShipType</a></li></ul></li><li><a href="util.html">util</a><ul class='methods'><li data-type='method'><a href="util.html#.array">array</a></li><li data-type='method'><a href="util.html#.commify">commify</a></li><li data-type='method'><a href="util.html#.formatMs">formatMs</a></li><li data-type='method'><a href="util.html#.formatServerDate">formatServerDate</a></li><li data-type='method'><a href="util.html#.handlePlurality">handlePlurality</a></li><li data-type='method'><a href="util.html#.handlePromiseError">handlePromiseError</a></li><li data-type='method'><a href="util.html#.int">int</a></li><li data-type='method'><a href="util.html#.isCLI">isCLI</a></li><li data-type='method'><a href="util.html#.isMultiple">isMultiple</a></li><li data-type='method'><a href="util.html#.isWeb">isWeb</a></li><li data-type='method'><a href="util.html#.mean">mean</a></li><li data-type='method'><a href="util.html#.msFromNow">msFromNow</a></li><li data-type='method'><a href="util.html#.objectToArray">objectToArray</a></li><li data-type='method'><a href="util.html#.regexMatch">regexMatch</a></li><li data-type='method'><a href="util.html#.round">round</a></li></ul></li></ul>
 </nav>
 
 <div id="main">
@@ -273,6 +273,162 @@ a variable is an array without doing any tricky checking.</p>
 
     
 
+    <h4 class="name" id=".commify"><span class="type-signature">(static) </span>commify<span class="signature">(x)</span><span class="type-signature"> &rarr; {string}</span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Inserts commas into large numbers to improve readibility.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+|
+
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>the number you want to add commas to.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="util.js.html">util.js</a>, <a href="util.js.html#line45">line 45</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>the number with commas added</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
     <h4 class="name" id=".formatMs"><span class="type-signature">(static) </span>formatMs<span class="signature">(ms)</span><span class="type-signature"> &rarr; {string}</span></h4>
 
     
@@ -373,7 +529,7 @@ a variable is an array without doing any tricky checking.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="util.js.html">util.js</a>, <a href="util.js.html#line45">line 45</a>
+        <a href="util.js.html">util.js</a>, <a href="util.js.html#line60">line 60</a>
     </li></ul></dd>
     
 
@@ -526,7 +682,7 @@ a variable is an array without doing any tricky checking.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="util.js.html">util.js</a>, <a href="util.js.html#line55">line 55</a>
+        <a href="util.js.html">util.js</a>, <a href="util.js.html#line74">line 74</a>
     </li></ul></dd>
     
 
@@ -702,7 +858,7 @@ a variable is an array without doing any tricky checking.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="util.js.html">util.js</a>, <a href="util.js.html#line178">line 178</a>
+        <a href="util.js.html">util.js</a>, <a href="util.js.html#line212">line 212</a>
     </li></ul></dd>
     
 
@@ -870,7 +1026,7 @@ and gracefully.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="util.js.html">util.js</a>, <a href="util.js.html#line67">line 67</a>
+        <a href="util.js.html">util.js</a>, <a href="util.js.html#line90">line 90</a>
     </li></ul></dd>
     
 
@@ -1001,7 +1157,7 @@ and gracefully.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="util.js.html">util.js</a>, <a href="util.js.html#line81">line 81</a>
+        <a href="util.js.html">util.js</a>, <a href="util.js.html#line104">line 104</a>
     </li></ul></dd>
     
 
@@ -1105,7 +1261,7 @@ and gracefully.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="util.js.html">util.js</a>, <a href="util.js.html#line90">line 90</a>
+        <a href="util.js.html">util.js</a>, <a href="util.js.html#line117">line 117</a>
     </li></ul></dd>
     
 
@@ -1281,7 +1437,7 @@ and gracefully.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="util.js.html">util.js</a>, <a href="util.js.html#line101">line 101</a>
+        <a href="util.js.html">util.js</a>, <a href="util.js.html#line128">line 128</a>
     </li></ul></dd>
     
 
@@ -1381,7 +1537,7 @@ and gracefully.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="util.js.html">util.js</a>, <a href="util.js.html#line110">line 110</a>
+        <a href="util.js.html">util.js</a>, <a href="util.js.html#line137">line 137</a>
     </li></ul></dd>
     
 
@@ -1534,7 +1690,7 @@ and gracefully.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="util.js.html">util.js</a>, <a href="util.js.html#line120">line 120</a>
+        <a href="util.js.html">util.js</a>, <a href="util.js.html#line147">line 147</a>
     </li></ul></dd>
     
 
@@ -1687,7 +1843,7 @@ and gracefully.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="util.js.html">util.js</a>, <a href="util.js.html#line130">line 130</a>
+        <a href="util.js.html">util.js</a>, <a href="util.js.html#line164">line 164</a>
     </li></ul></dd>
     
 
@@ -1863,7 +2019,7 @@ and gracefully.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="util.js.html">util.js</a>, <a href="util.js.html#line148">line 148</a>
+        <a href="util.js.html">util.js</a>, <a href="util.js.html#line182">line 182</a>
     </li></ul></dd>
     
 
@@ -2039,7 +2195,7 @@ and gracefully.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="util.js.html">util.js</a>, <a href="util.js.html#line190">line 190</a>
+        <a href="util.js.html">util.js</a>, <a href="util.js.html#line236">line 236</a>
     </li></ul></dd>
     
 
@@ -2215,7 +2371,7 @@ and gracefully.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="util.js.html">util.js</a>, <a href="util.js.html#line207">line 207</a>
+        <a href="util.js.html">util.js</a>, <a href="util.js.html#line253">line 253</a>
     </li></ul></dd>
     
 
@@ -2281,7 +2437,7 @@ and gracefully.</p>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Sat Jan 23 2016 17:16:54 GMT+1000 (AEST) using the Minami theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Tue Mar 08 2016 15:46:59 GMT+1000 (AEST) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>
